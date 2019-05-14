@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To do App</title>
+    <style type="text/css">
+    .container{
+    border:10px solid pink;
+
+    }
+
+        label{
+        size:26;
+        margine:20px;
+        padding:20px;
+        }
+
+    </style>
+</head>
+<body>
+{% load bootstrap4 %}
+<div class="container">
+   <h1 class="display-1">To Do App</h1>
+
+  <h4 class="display-4">Cheak your To Do Works !</h4>
+</div>
+
+<form action="home" method="post" class="form">
+    {% csrf_token %}
+    <strong><label >Work Name : </label></strong><br>
+    {{  form.work }}
+    <br><br><br>
+<label>Created At : </label>
+        <input type="date" name="created_at">
+    <br>
+    <label>Work Is Completed ? </label>
+    {{ form.completed }}
+<br>
+    {% buttons %}
+        <button type="submit" class="btn btn-alert">Submit</button>
+    {% endbuttons %}
+    <br>
+</form>
+{{data}}
+{{form}}
+
+</body>
+</html>

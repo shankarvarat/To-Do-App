@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do App</title>
+</head>
+<body>
+<center>
+<h1>To Do App</h1>
+</center>
+<section class="nav">
+<button type="button"><a href="/create">New To Do Work</a> </button>
+</section>
+
+<section class="data">
+    {% for k in data %}
+    <label> Work :</label><br>
+    {{k.work}}
+    <br>
+    <label> Created at : </label>
+    {{k.created_at}}
+    <br>
+    <label>Complted :</label>
+    {{k.completed}}
+    {% endfor %}
+
+
+</section>
+</body>
+</html>
