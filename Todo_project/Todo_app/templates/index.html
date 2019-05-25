@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>To Do App</title>
+    <style type="text/css">
+        .data{
+        padding:10px;
+        border:5px solid red;
+        margine:10px;
+        }
+    </style>
 </head>
 <body>
 <center>
@@ -12,8 +19,9 @@
 <button type="button"><a href="/create">New To Do Work</a> </button>
 </section>
 
-<section class="data">
     {% for k in data %}
+
+<section class="data">
     <label> Work :</label><br>
     {{k.work}}
     <br>
@@ -22,9 +30,10 @@
     <br>
     <label>Complted :</label>
     {{k.completed}}
+    </section>
+
     {% endfor %}
 
 
-</section>
 </body>
 </html>
