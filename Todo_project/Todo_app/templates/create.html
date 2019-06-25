@@ -8,7 +8,21 @@
 <h1 > Create New To Do !!
     <form method="POST" action="create">
         {%csrf_token%}
-{{form}}
+
+        {% for i in form %}
+                {{i.Title}}
+
+
+        {{i.Due_date}}
+        {{i.Criticality}}
+        {{i.Status}}
+        {% endfor %}
+        {{form.title}}
+        {{form.description}}
+
+        <input type="date" name="due_date">
+        {{form.criticality}}
+        {{form.status}}
         <button type="submit">Create</button>
     </form>
 </body>
