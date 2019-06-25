@@ -5,7 +5,12 @@ from .form import TodoForm
 # Create your views here.
 def home(request):
     data=todo.objects.all
-    return render(request,'index.html',{'data':data})
+    com=todo.objects.filter(status="Completed")
+    Not=todo.objects.filter(status="Not Started")
+    pro=todo.objects.filter(status="Work in Progress")
+
+
+    return render(request,'index.html',{'data':data,'com':com,'Not':Not,'pro':pro})
 def create(request):
     if request.method=='POST':
         form=TodoForm(request.POST)

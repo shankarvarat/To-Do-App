@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>To Do App</title>
-    <style type="text/css">
-        .data{
-        padding:10px;
-        border:5px solid red;
-        margine:10px;
-        }
-    </style>
+
+        <style>
+table, th,td {
+  border: 2px solid blue;
+  margin: 50px 50px 75px 100px;
+  padding: 10px;
+}
+    #one{
+    border:2px solid red;
+    }
+    #two{
+    border:2px solid yellow;
+    }
+    #three{
+    border:2px solid green;
+    }
+
+
+
+
+</style>
+
+
 </head>
 <body>
 <center>
@@ -19,20 +35,55 @@
 <button type="button"><a href="/create">New To Do Work</a> </button>
 </section>
 
-    {% for k in data %}
 
 <section class="data">
-    <label> Work :</label><br>
-    {{k.work}}
-    <br>
-    <label> Created at : </label>
-    {{k.created_at}}
-    <br>
-    <label>Complted :</label>
-    {{k.completed}}
-    </section>
 
-    {% endfor %}
+    <table>
+        <tr>
+            <th>Work Not Started</th>
+            <th>work in Progress</th>
+            <th>Completed</th>
+        </tr>
+        <tr>
+            <td>
+                <div id="one">
+        <ol>
+            {% for k in Not %}
+            <li>{{k.title}}</li>
+            {%endfor%}
+        </ol>
+                </div>
+            </td>
+            <td>
+    <div id="two">
+
+        <ol>
+            {% for k in pro %}
+            <li>{{k.title}}</li>
+            {%endfor%}
+        </ol>
+    </div>
+            </td>
+            <td>
+    <div id="three">
+        <ol>
+            {%for k in com %}
+            <li>{{k.title}}</li>
+            {%endfor%}
+
+
+        </ol>
+    </div>
+            </td>
+        </tr>
+
+
+
+    </table>
+
+
+
+</div>
 
 
 </body>
