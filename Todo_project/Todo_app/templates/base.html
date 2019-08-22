@@ -2,47 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>To do App</title>
-    <style type="text/css">
-    .container{
-    border:10px solid pink;
-
+    <title>To Do App</title>
+     <style>
+table, th,td {
+  border: 2px solid blue;
+  margin: 50px 50px 75px 100px;
+  padding: 10px;
+}
+    #one{
+    border:2px solid red;
     }
-
-        label{
-        size:26;
-        margine:20px;
-        padding:20px;
-        }
-
+    #two{
+    border:2px solid yellow;
+    }
+    #three{
+    border:2px solid green;
+    }
     </style>
+
 </head>
 <body>
-{% load bootstrap4 %}
-<div class="container">
-   <h1 class="display-1">To Do App</h1>
+<div>
+    <header>
+        <h1>To Do App</h1>
+    <nav>
+        {% if user.isactive %}
+        <a href="home">Home</a>
+        <a href="logoutuser">Logout</a>
+        {% else %}
+        <a href="loginuser">Login</a>
+        <a href="signupform">Signup</a>
+            {% endif %}
 
-  <h4 class="display-4">Cheak your To Do Works !</h4>
+
+    </nav>
+    </header>
+    <div>
+        {% block content%}
+        {% endblock %}
+    </div>
 </div>
-
-<form action="home" method="post" class="form">
-    {% csrf_token %}
-    <strong><label >Work Name : </label></strong><br>
-    {{  form.work }}
-    <br><br><br>
-<label>Created At : </label>
-        <input type="date" name="created_at">
-    <br>
-    <label>Work Is Completed ? </label>
-    {{ form.completed }}
-<br>
-    {% buttons %}
-        <button type="submit" class="btn btn-alert">Submit</button>
-    {% endbuttons %}
-    <br>
-</form>
-{{data}}
-{{form}}
 
 </body>
 </html>

@@ -1,0 +1,54 @@
+{% extends "base.html"%}
+{% block content %}
+<h1> Its working !!</h1>
+<section class="data">
+
+    <table>
+        <tr>
+            <th>Work Not Started</th>
+            <th>work in Progress</th>
+            <th>Completed</th>
+        </tr>
+        <tr>
+            <td>
+                <div id="one">
+        <ol>
+            {% for k in Not %}
+            <li>{{k.title}}</li>
+            {%endfor%}
+        </ol>
+                </div>
+            </td>
+            <td>
+    <div id="two">
+
+        <ol>
+            {% for k in pro %}
+            <li>{{k.title}}</li>
+            {%endfor%}
+        </ol>
+    </div>
+            </td>
+            <td>
+    <div id="three">
+        <ol>
+            {%for k in com %}
+            <li>{{k.title}}</li>
+            {%endfor%}
+
+
+        </ol>
+    </div>
+            </td>
+        </tr>
+
+
+
+    </table>
+
+
+
+</div>
+
+</section>
+{% endblock %}
