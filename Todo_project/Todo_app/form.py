@@ -1,6 +1,6 @@
 from django import forms
-from .models import todo
+from .models import *
 class TodoForm(forms.ModelForm):
      class Meta:
-         model = todo
+         model = work
          fields='__all__'

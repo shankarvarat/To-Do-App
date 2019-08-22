@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>New To Do </title>
-</head>
-<body>
-<h1 > Create New To Do !!
+{% extends "base.html"%}
+{% block content %}
+<h1 > Create New To Do !!</h1>
     <form method="POST" action="create">
         {%csrf_token%}
 
@@ -30,5 +25,4 @@
 
         <button type="submit">Create</button>
     </form>
-</body>
-</html>
+{% endblock %}
