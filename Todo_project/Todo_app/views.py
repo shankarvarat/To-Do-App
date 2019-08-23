@@ -18,6 +18,7 @@ def loginuser(request):
                 auth.login(request,user)
                 return redirect('/index')
             else:
+
                 return HttpResponse("Your account was inactive.")
         else:
             return HttpResponse("Invalid login details given")
@@ -47,11 +48,11 @@ def signupform(request):
 @login_required
 def home(request):
     if User.is_active:
-        name=User.username
-
+        #name=request.User.username()
+        name=request.user.get_username()
 
         data=todo_work.objects.all
-        com=todo_work.objects.filter(status="Completed")
+        com=todo_work.objects.filter(user=name)
         Not=todo_work.objects.filter(status="Not Started")
         pro=todo_work.objects.filter(status="Work in Progress")
 
