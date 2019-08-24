@@ -45,25 +45,29 @@ def signupform(request):
 
         return render(request,"signup.html",{"form": form})
 
-@login_required
 def home(request):
     if User.is_active:
-        #name=request.User.username()
-        name=request.user.get_username()
+        #user=request.User
+        name=request.user
 
-        data=todo_work.objects.all
-        com=todo_work.objects.filter(user=name)
+        data=todo_work.objects.all()
+        com=todo_work.objects.filter(status="Completed")
         Not=todo_work.objects.filter(status="Not Started")
         pro=todo_work.objects.filter(status="Work in Progress")
 
 
-    return render(request,'home.html',{'data':data,'com':com,'Not':Not,'pro':pro,"name":name})
+        return render(request,'home.html',{'data':data,'com':com,'Not':Not,'pro':pro,"name":name})
+    else:
+        return render(request,"login.html")
 def create(request):
     if request.method=='POST':
         form=TodoForm(request.POST)
+
+
         if form.is_valid():
-            form.save()
-            form=TodoForm()
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
             return redirect('/home')
         else:
             return render(request, 'home.html', {'form': form})

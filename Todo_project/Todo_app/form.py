@@ -2,5 +2,6 @@ from django import forms
 from .models import *
 class TodoForm(forms.ModelForm):
      class Meta:
-         model = work
-         fields='__all__'
+         model = todo_work
+
+         fields=("title","description","due_date","criticality","status")

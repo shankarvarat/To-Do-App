@@ -27,10 +27,11 @@ class todo_work(models.Model):
     title=models.CharField(max_length=100)
     description=models.TextField(max_length=300)
     created_date=models.DateField(auto_now_add=True)
+    created_date.editable=True
     due_date=models.DateField()
     criticality=models.CharField(max_length=100,choices=crik)
     status=models.CharField(max_length=100,choices=stat)
-    user=models.ForeignKey(User,on_delete="CASCADE")
+    user=models.ForeignKey(User,on_delete="CASCADE",null=True)
 
 
     def __str__(self):
