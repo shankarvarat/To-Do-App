@@ -66,7 +66,7 @@ def create(request):
 
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
+            post.user = request.user
             post.save()
             return redirect('/home')
         else:
