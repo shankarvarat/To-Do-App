@@ -27,14 +27,16 @@ table, th,td {
         <h1>To Do App</h1>
     <nav>
         {% if user.is_active %}
-        <a href="home">Home</a>
-        <a href="logoutuser">Logout</a>
-        <a href="create">Create New To Do</a>
-        {% else %}
-                <a href="logoutuser">Logout</a>
+        <button ><a href="home">Home</a></button>
+        <button><a href="create">Create New To Do</a></button>
 
-        <a href="loginuser">Login</a>
-        <a href="signupform">Signup</a>
+        <button id="leftb"><a href="logoutuser" >Logout</a></button>
+
+        {% else %}
+        <button ><a href="home">Home</a></button>
+
+        <button><a href="loginuser">Login</a></button>
+        <button><a href="signupform">Signup</a></button>
             {% endif %}
 
 

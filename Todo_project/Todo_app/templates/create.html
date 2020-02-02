@@ -3,24 +3,7 @@
 <h1 > Create New To Do !!</h1>
     <form method="POST" action="create">
         {%csrf_token%}
-
-        <label>Title</label>
-        {{form.title}}
-        <br><br>
-        <label>Description</label>
-        {{form.description}}
-        <br><br>
-
-        <label for="ddate">Due date</label>
-        <input id="ddate" type="date" name="due_date">  <br><br>
-
-        <label>Criticality</label>
-        {{form.criticality}}
-        <br><br>
-
-        <label>Status</label>
-        {{form.status}}
-        <br><br>
+{{form}}
 
         <button type="submit">Create</button>
     </form>
